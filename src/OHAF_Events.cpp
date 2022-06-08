@@ -108,7 +108,7 @@ namespace MaxsuOnHitAnimFW
 	
 		std::string graph_name = thisgraph->projectName.data();
 
-		std::transform(graph_name.begin(), graph_name.end(), graph_name.begin(), std::tolower);
+		std::transform(graph_name.begin(), graph_name.end(), graph_name.begin(), [](unsigned char c) { return std::tolower(c); });
 
 		logger::debug(FMT_STRING("Target Actor Graph Name is \"{}\"."), graph_name);
 
@@ -285,7 +285,7 @@ namespace MaxsuOnHitAnimFW
 
 		std::string graph_name = thisgraph->projectName.data();
 
-		std::transform(graph_name.begin(), graph_name.end(), graph_name.begin(), std::tolower);
+		std::transform(graph_name.begin(), graph_name.end(), graph_name.begin(), [](unsigned char c) { return std::tolower(c); });
 
 		logger::debug(FMT_STRING("Target Actor Graph Name is {}."), graph_name);
 

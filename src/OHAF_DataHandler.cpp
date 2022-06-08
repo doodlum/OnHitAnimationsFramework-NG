@@ -46,7 +46,7 @@ namespace MaxsuOnHitAnimFW
 
 	void DataHandler::AddAnimGraphObj(string GraphName, const string EventName, const string VarFloatName)
 	{
-		std::transform(GraphName.begin(), GraphName.end(), GraphName.begin(), std::tolower);
+		std::transform(GraphName.begin(), GraphName.end(), GraphName.begin(), [](unsigned char c) { return std::tolower(c); });
 
 		auto it = AG_Map.find(GraphName);
 
