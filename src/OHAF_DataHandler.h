@@ -12,28 +12,22 @@ namespace MaxsuOnHitAnimFW
 
 		const string VarFloatName;
 
-
 		OHAF_AnimGraphObj() = delete;
 
 		OHAF_AnimGraphObj(const OHAF_AnimGraphObj&) = delete;
 
 		OHAF_AnimGraphObj& operator=(const OHAF_AnimGraphObj&) = delete;
 
-
-		OHAF_AnimGraphObj(const string thisGraphName, const string thisEventName, const string thisVarFloatName) : GraphName(thisGraphName), EventName(thisEventName), VarFloatName(thisVarFloatName)
+		OHAF_AnimGraphObj(const string thisGraphName, const string thisEventName, const string thisVarFloatName) :
+			GraphName(thisGraphName), EventName(thisEventName), VarFloatName(thisVarFloatName)
 		{
 			logger::info(FMT_STRING("Construct a Animation Graph Object, Graph Name {}, Event Name : {}, VariableFloat Name : {}."), GraphName, EventName, VarFloatName);
 		}
-
 	};
-
-
 
 	class DataHandler
 	{
-
 	public:
-
 		static DataHandler* GetSingleton()
 		{
 			static DataHandler singleton;
@@ -66,9 +60,7 @@ namespace MaxsuOnHitAnimFW
 			return EnableNPC;
 		}
 
-
-	private: 
-
+	private:
 		DataHandler();
 
 		~DataHandler() = default;
@@ -77,11 +69,9 @@ namespace MaxsuOnHitAnimFW
 
 		DataHandler(DataHandler&&) = delete;
 
-		DataHandler& operator= (const DataHandler&) = delete;
+		DataHandler& operator=(const DataHandler&) = delete;
 
-		DataHandler& operator= (DataHandler&&) = delete;
-
-
+		DataHandler& operator=(DataHandler&&) = delete;
 
 		bool EnableDebugLog = false;
 
@@ -93,34 +83,18 @@ namespace MaxsuOnHitAnimFW
 
 		bool EnableNPC = true;
 
-	
-	//--------------------------------AnimGraph Handler---------------------------------------------------------
+		//--------------------------------AnimGraph Handler---------------------------------------------------------
 
 	public:
-
 		std::shared_ptr<OHAF_AnimGraphObj> LookUpAGObjByName(const string graph_name);
 
-
 	private:
-
 		void AddAnimGraphObj(string GraphName, const string EventName, const string VarFloatName);
 
 		void GetAnimGraphsFromINIFiles();
 
 		std::unordered_map<string, std::shared_ptr<OHAF_AnimGraphObj>> AG_Map;
 
-	//-------------------------------------------------------------------------------------------------------------
-
-
-
+		//-------------------------------------------------------------------------------------------------------------
 	};
-
-
-
-
-
-
-
-
-
 }
